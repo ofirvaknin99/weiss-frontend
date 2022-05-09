@@ -1,0 +1,20 @@
+<mat-card (mouseover)="changeImageDisplay=true" (mouseout)="changeImageDisplay=false" class="media-card" (click)="openDialog()">
+    <div *ngIf="changeImageDisplay; else showPoster">
+        <img class="media-image-hovered" [src]="displayPoster()" alt="{{media.Title}}">
+        <div class="heart-icon-container" (click)="editCardWishlistStatus($event)">
+            <mat-icon class="mat-heart-icon" *ngIf="isMediaWishlisted">favorite</mat-icon>
+            <mat-icon class="mat-heart-icon" *ngIf="!isMediaWishlisted">favorite_border</mat-icon>
+        </div>
+        <div class="media-details">
+            <div class="media-title">
+                {{media.Title}}
+            </div>
+            <div class="media-year">
+                {{media.Year}}
+            </div>
+        </div>
+    </div>
+    <ng-template #showPoster>
+        <img class="media-image" [src]="displayPoster()" alt="{{media.Title}}">
+    </ng-template>
+</mat-card>

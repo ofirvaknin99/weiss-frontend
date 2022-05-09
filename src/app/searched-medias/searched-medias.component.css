@@ -1,0 +1,19 @@
+.searched-medias,
+.display-search-query,
+.no-results {
+    color: white;
+    font-size: 24px;
+    font-weight: lighter;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 1200px;
+    overflow: auto;
+}

@@ -1,0 +1,21 @@
+.search-input {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+mat-icon {
+    color: white;
+    font-size: 30px;
+    padding-right: 10px;
+}
+
+input,
+input:focus {
+    border: 2.5px solid #a7a71c;
+    background-color: black;
+    width: 20%;
+    height: 20px;
+    color: white;
+    outline: none;
+}

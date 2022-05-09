@@ -1,0 +1,34 @@
+<div class="dialog-container" *ngIf="ifMediaDataArrived; else loading">
+    <div class="media-image">
+        <img [src]="displayDialogPoster()" alt="{{mediaToDisplay.Title}}">
+    </div>
+    <div class="media-content">
+        <div class="media-title">
+            {{mediaToDisplay.Title}}
+        </div>
+        <div class="media-release-date">
+            {{mediaToDisplay.Released}}
+        </div>
+        <div class="media-genres" *ngIf="ifDataExist(mediaToDisplay.Rated)">
+            {{mediaToDisplay.Genre}}
+        </div>
+        <div class="media-plot" *ngIf="ifDataExist(mediaToDisplay.Rated)">
+            {{mediaToDisplay.Plot}}
+        </div>
+        <div class="media-director" *ngIf="ifDataExist(mediaToDisplay.Rated)">
+            Director : {{mediaToDisplay.Director}}
+        </div>
+        <div class="media-actors" *ngIf="ifDataExist(mediaToDisplay.Rated)">
+            Cast : {{mediaToDisplay.Actors}}
+        </div>
+        <div class="media-rating" *ngIf="ifDataExist(mediaToDisplay.Rated)">
+            Rated : {{mediaToDisplay.Rated}}
+        </div>
+        <div class="media-website-link" *ngIf="ifDataExist(mediaToDisplay.Website)">
+            {{mediaToDisplay.Website}}
+        </div>
+    </div>
+</div>
+<ng-template #loading class="indeterminate-spinner">
+    <mat-progress-spinner style="margin:0 auto;" [diameter]="200" mode="indeterminate"></mat-progress-spinner>
+</ng-template>

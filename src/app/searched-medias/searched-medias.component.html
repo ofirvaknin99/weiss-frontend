@@ -1,0 +1,27 @@
+<div *ngIf="searchQuery === ''; else showMedias" class="searched-medias">
+    Your Wishlist
+    <hr>
+    <app-wishlist [wishlist]="wishlist" (wishlistChangeEmitter)="editWishlist($event)"></app-wishlist>
+</div>
+
+<ng-template #showMedias>
+    <ng-container *ngIf="medias.length == 0; else mediaSection">
+        <div class="display-search-query">
+            Search Results For "{{searchQuery}}
+        </div>
+        <hr>
+        <div class="no-results">
+            No Results Found
+        </div>
+    </ng-container>
+</ng-template>
+<ng-template #mediaSection>
+    <div class="display-search-query">
+        Search Results For "{{searchQuery}}
+    </div>
+    <hr>
+    <div class="cards">
+        <app-media-card *ngFor="let media of medias" [media]="media" [isMediaWishlisted]="checkForWishlistedMedia(media)"
+            (cardChangeEmitter)="editWishlist($event)"></app-media-card>
+    </div>
+</ng-template>

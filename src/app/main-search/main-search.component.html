@@ -1,0 +1,5 @@
+<div class="search-input">
+    <mat-icon>search</mat-icon>
+    <input [ngModel]='search' (ngModelChange)='searchChange.next($event)' placeholder="Search something">
+</div>
+<app-searched-medias [searchQuery]="search"></app-searched-medias>
